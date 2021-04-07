@@ -2,8 +2,11 @@
 <div class="heroes-menu">
   <a *ngFor="let hero of heroes"
       routerLink="/detail/{{hero.id}}">
-      {{hero.name}}
-  </a>
+      <mat-card>
+  <img mat-card-image src="{{hero.imageUrl}}">
+  {{hero.name}}
+</mat-card>
+</a>
 </div>
 
 <app-hero-search></app-hero-search>
