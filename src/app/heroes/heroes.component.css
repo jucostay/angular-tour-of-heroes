@@ -9,15 +9,15 @@
     cursor: pointer;
     position: relative;
     left: 0;
-    background-color: #EEE;
+    background-color: #405061;
     margin: .5em;
     padding: .3em 0;
-    height: 1.6em;
+    height: 2.6em;
     border-radius: 4px;
   }
   .heroes li:hover {
-    color: #2c3a41;
-    background-color: #e6e6e6;
+    color: #ffffff;
+    background-color: white;
     left: .1em;
   }
   .heroes li.selected {
@@ -25,8 +25,9 @@
     color: white;
   }
   .heroes li.selected:hover {
-    background-color: #505050;
+    background-color: #405063;
     color: white;
+   
   }
   .heroes li.selected:active {
     background-color: black;
@@ -35,16 +36,17 @@
   .heroes .badge {
     display: inline-block;
     font-size: small;
-    color: white;
+    background-color: #405063;
+    color: #ffffff;
     padding: 0.8em 0.7em 0 0.7em;
-    background-color:#405061;
     line-height: 1em;
-    position: relative;
+    position: r;
     left: -1px;
     top: -4px;
     height: 1.8em;
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
+    float: right;
   }
   
   input {

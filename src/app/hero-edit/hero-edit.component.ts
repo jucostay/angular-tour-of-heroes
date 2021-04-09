@@ -26,7 +26,7 @@ export class HeroEditComponent implements OnInit {
   }
 
   getHero(): void {
-    const id = +this.route.snapshot.paramMap.get('id')!;
+    const id = this.route.snapshot.paramMap.get('id')!;
     this.heroService.getHero(id)
       .subscribe(hero => this.hero = hero);
   }
@@ -35,7 +35,6 @@ export class HeroEditComponent implements OnInit {
     this.location.back();
   }
 save(): void {
-    this.heroService.updateHero(this.hero)
-      .subscribe(() => this.goBack());
+     this.goBack();
   }
 }
