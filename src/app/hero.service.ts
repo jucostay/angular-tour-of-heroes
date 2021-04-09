@@ -81,19 +81,19 @@ export class HeroService {
 
   /** DELETE: delete the hero from the server */
   deleteHero(id: string): Observable<Hero> {
-    const url = `${this.heroesUrl}/${id}`;
-
+    const url = `${this.heroesUrl}/hero/${id}`;
     return this.http.delete<Hero>(url, this.httpOptions).pipe(
       tap(_ => this.log(`deleted hero id=${id}`)),
       catchError(this.handleError<Hero>('deleteHero'))
     );
   }
 
-  /** PUT: update the hero on the server */
-  updateHero(hero: Hero): Observable<any> {
-    return this.http.put<Hero>(`${this.heroesUrl}/heroes`, heroParams, this.httpOptions).pipe(
-      tap(_ => this.log(`updated hero id=${hero.id}`)),
-      catchError(this.handleError<any>('updateHero'))
+  /** PUT: update the hero on the server */ 
+  updateHero(hero: Hero): Observable<Hero> {
+    const heroParams = {hero: hero};
+    return this.http.post<Hero>(`${this.heroesUrl}/hero/${hero.id}`, heroParams, this.httpOptions).pipe(
+    tap(_ => this.log(`updated hero id=${hero.id}`)),
+    catchError(this.handleError<any>('updateHero'))
     );
   }
   getTopHeroes(): Observable <HeroGetResponse> {
