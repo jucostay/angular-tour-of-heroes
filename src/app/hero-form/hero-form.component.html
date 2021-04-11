@@ -1,40 +1,53 @@
 <div *ngIf="hero">
-    <h2>{{hero.name | uppercase}}</h2>
-    <div><span>id: </span>{{hero.id}}</div>
-  
-  
+<form [formGroup]="formGroup" (ngSubmit)="save()"> 
+<mat-card class="hero-edit-content">
+<mat-card-title><h2>{{hero.name | uppercase}} | id: {{hero.id}}</h2></mat-card-title>
+</mat-card>
+
+<mat-card>
     <mat-form-field class="full-width">
       <mat-label>Hero name</mat-label>
-      <input matInput placeholder="hero.name" [(ngModel)]="hero.name">
+      <input matInput placeholder="hero name" formControlName = "name" minlength="3" maxlength="30">
+      
+      <mat-error *ngIf="formGroup.get('name')?.hasError('required')">O Nome é obrigatorio</mat-error>
     </mat-form-field>
-  
-  
+</mat-card> 
+
     <br>
-      <mat-form-field class="full-width">
+
+<mat-card>
+    <mat-form-field class="full-width">
       <mat-label>Hero description: </mat-label>
-      <input matInput placeholder="hero description" [(ngModel)]="hero.description">
+      <input matInput placeholder="hero Description" formControlName = "description" minlength="3">
+    <mat-error *ngIf="formGroup.get('description')?.hasError('required')">A descrição deve ter no minimo 3 caracteres</mat-error>
     </mat-form-field>
+</mat-card>
+
     <br>
-  
-      <mat-form-field class="full-width">
-      <mat-label for="hero-image-url">Hero image url: </mat-label>
-      <input matInput placeholder="hero-image-url" [(ngModel)]="hero.imageUrl">
-      </mat-form-field>
+
+<mat-card>    
+    <mat-form-field class="example-full-width">
+      <mat-label>Hero image url: </mat-label>
+      <input matInput placeholder="hero-image-url" formControlName="imageUrl">    
+      <mat-error *ngIf="formGroup.get('imageUrl')?.hasError('required')">A URL é invalida</mat-error>
+    </mat-form-field>
+</mat-card>
+
     <br>
-  
-    <h4></h4>
-  <mat-form-field appearance="fill">
-    <mat-label>universe</mat-label>
-    <mat-select [(ngModel)]="hero.universe" >
+
+<mat-card>
+   <mat-form-field appearance="fill">
+    <mat-label>Universe</mat-label>
+    <mat-select formControlName="universe" >
       <mat-option *ngFor="let universe of heroUniverses " [value]="universe">
         {{universe | uppercase}}
       </mat-option>
     </mat-select>
   </mat-form-field>
-  
+</mat-card>
+
     <br>
-        <button mat-raised-button (click)="onGoBack()">Go Back</button>
-        <br>
-        <br>
-        <button mat-raised-button (click)="save()"Save> Save </button>
-  
+        <button mat-raised-button type="button" (click)="onGoBack()">Go Back</button>
+        <button mat-raised-button type="submit" color="primary" [disabled]="!formGroup.valid">Save</button>
+</form>
+</div>
