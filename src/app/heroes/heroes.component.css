@@ -1,23 +1,21 @@
 /* HeroesComponent's private CSS styles */
 .heroes {
-    margin: 0 0 2em 0;
+    margin: 30px;
     list-style-type: none;
-    padding: 0;
-    width: 15em;
+    padding: 5px;
+    width: 550px;
   }
   .heroes li {
     cursor: pointer;
     position: relative;
     left: 0;
-    background-color: #405061;
+    background-color: #ffffff;
     margin: .5em;
     padding: .3em 0;
-    height: 2.6em;
     border-radius: 4px;
   }
   .heroes li:hover {
     color: #ffffff;
-    background-color: white;
     left: .1em;
   }
   .heroes li.selected {
@@ -25,30 +23,46 @@
     color: white;
   }
   .heroes li.selected:hover {
-    background-color: #405063;
+
     color: white;
-   
+    
   }
   .heroes li.selected:active {
     background-color: black;
     color: white;
   }
+
+  .heroes a {
+    color: black;
+    background-color: rgb(255, 255, 255);
+    margin: 1px;
+    padding: 2px;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   .heroes .badge {
     display: inline-block;
-    font-size: small;
-    background-color: #405063;
-    color: #ffffff;
-    padding: 0.8em 0.7em 0 0.7em;
-    line-height: 1em;
-    position: r;
-    left: -1px;
-    top: -4px;
-    height: 1.8em;
+    font-size: medium;
+    color: black;
+    line-height: 100em;
+    height: 110px;
+    text-align: center ;
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
-    float: right;
   }
   
   input {
     padding: .5rem;
   }
+  
+ .buttonadd {
+   position: fixed;
+   width: 60px;
+   height: 60px;
+   bottom: 30px;
+   right: 30px;
+ }

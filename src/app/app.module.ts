@@ -18,7 +18,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { HeroNewComponent } from './hero-new/hero-new.component';
 import { HeroFormComponent } from './hero-form/hero-form.component';
 import {MatIconModule} from '@angular/material/icon';
-
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   imports: [
@@ -33,7 +33,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatCardModule,
     MatButtonModule,
     MatIconModule,
-    
+    InfiniteScrollModule,
+
   ],
   declarations: [
     AppComponent,
